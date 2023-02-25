@@ -5,9 +5,9 @@ from PIL import Image, ImageDraw, ImageFont
 import matplotlib.pyplot as plt
 import numpy as np
 
-#api_key = "211ced6886270c25c3a91ec5277aa320f755ea61"
+api_key = "211ced6886270c25c3a91ec5277aa320f755ea61"
 #api_key = "7edefa0cd0d99468cc9d64a4cea93e0cd3490963"
-api_key = "b63ca4df943496fe98ef208580041f78a3667554"
+# api_key = "b63ca4df943496fe98ef208580041f78a3667554"
 
 def file_to_string(file):
   
@@ -76,7 +76,6 @@ def blogPostResponse(api_key):
 
 #### CALL THIS FUNCTION #######
 def infographicCreation(summary):
-    api_key = "b63ca4df943496fe98ef208580041f78a3667554"
     keywords = keywordsResponse(api_key, summary)
     # keywords = ["hi","test","bye"]
     # Create word cloud from key phrases

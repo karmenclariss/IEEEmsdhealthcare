@@ -10,7 +10,7 @@ from flask import Flask, request
 
 #app = Flask(__name__)
 #openai.api_key_path = 'IEEEmsdhealthcare/backend/.env'
-openai.api_key = "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"
+openai.api_key = "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"
 
 #@app.route("/", methods=("GET", "POST"))
 def summarise(file):
