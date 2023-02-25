@@ -13,7 +13,7 @@ def pdf():
     if (request.method == "POST"):
         actualPDF = request.files['file']
         summary = pf.summarise(actualPDF)
-        #nlpt.infographicCreation(summary)
+        nlpt.infographicCreation(pf.split_lines(summary))
         return pf.string_to_file(summary)
         # summary_pdf.save('packagedPDF.pdf')
         # return message
