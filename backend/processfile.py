@@ -69,6 +69,12 @@ def string_to_file(string):
     return string
     # with open ("sample_output.pdf") as file:
     #     return file
+
+def split_lines(string):
+    words = string.split()
+    # print(words)
+    string = ' '.join([' '.join(words[i:i+10])+'\n' for i in range(0, len(words), 10)])
+    return string
         
 # if __name__ == '__main__':
 #     result = index()
