@@ -2,6 +2,7 @@ from flask_cors import CORS
 from flask import Flask, request, jsonify
 import base64
 import os
+import processfile as pf
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -10,7 +11,8 @@ cors = CORS(app)
 def pdf():
     if (request.method == "POST"):
         actualPDF = request.files['file']
-        actualPDF.save('packagedPDF.pdf')
+        return pf.string_to_file(pf.summarise(actualPDF))
+        # summary_pdf.save('packagedPDF.pdf')
         # return message
     return jsonify({"Message": "This is a test message"})
 

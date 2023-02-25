@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
-import axios from 'axios';
 
 class Home extends Component {
     state = {
@@ -45,15 +44,15 @@ class Home extends Component {
             method: 'POST',
             body: formData,
         }).then((response) => {
-            console.log(response);
+            return response.text();
+        }).then(function (data) {
+            console.log(data); // this will be a string
         });
     };
 
     render() {
         if (!this.props.data) return null;
 
-        const project = this.props.data.project;
-        const github = this.props.data.github;
         const name = this.props.data.name;
         const description = this.props.data.description;
 
@@ -68,9 +67,6 @@ class Home extends Component {
                         <hr />
                         <ul className="social">
                             <input type="file" onChange={this.onFileChange} className="button btn project-btn" />
-                            {/* <button onClick={this.onFileChange} className="button btn project-btn">
-                                    <i className="fa fa-upload"></i>Upload
-                                </button> */}
                             <button onClick={this.onFileUpload} className="button btn github-btn">
                                 <i className="fa fa-share"></i>Convert
                             </button>
