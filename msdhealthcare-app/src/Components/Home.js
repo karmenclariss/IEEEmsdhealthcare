@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
+import { data } from "jquery";
 
 class Home extends Component {
     state = {
-        onSelectedFile: null
+        onSelectedFile: null,
+        onData: null
     };
 
+    changeData = (newData) => {
+        this.setState({ onData: newData })
+    }
 
     onFileChange = event => {
         this.setState({ onSelectedFile: event.target.files[0] });
@@ -45,8 +50,8 @@ class Home extends Component {
             body: formData,
         }).then((response) => {
             return response.text();
-        }).then(function (data) {
-            console.log(data); // this will be a string
+        }).then((data) => {
+            this.setState({ onData: data })
         });
     };
 
@@ -72,6 +77,8 @@ class Home extends Component {
                             </button>
                         </ul>
                     </div>
+                    {this.state.onData && <h3 color="white">{this.state.onData}</h3>}
+
                 </div>
             </header>
         );
