@@ -5,8 +5,8 @@ from PIL import Image, ImageDraw, ImageFont
 import matplotlib.pyplot as plt
 import numpy as np
 
-api_key = "211ced6886270c25c3a91ec5277aa320f755ea61"
-#api_key = "7edefa0cd0d99468cc9d64a4cea93e0cd3490963"
+# api_key = "211ced6886270c25c3a91ec5277aa320f755ea61"
+api_key = "7edefa0cd0d99468cc9d64a4cea93e0cd3490963"
 # api_key = "b63ca4df943496fe98ef208580041f78a3667554"
 
 def file_to_string(file):
@@ -129,7 +129,7 @@ def infographicCreation(summary):
     draw.text((text_box2[0], text_box2[1]), summary, font=text_font2, fill=(0, 0, 0))
 
     # Save the infographic as an image file
-    infographic.save("./src/infographic.jpg")
+    infographic.save("./msdhealthcare-app/src/infographic.jpg")
 
     # Display the infographic
     # plt.imshow(infographic)

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
-import pic from "../infographic.jpg";
+import pic from "../infographic1.jpg";
+import loading from "../loading.png";
 
 class Home extends Component {
     state = {
         onSelectedFile: null,
-        onData: null
+        onData: null,
+        image: loading
     };
 
     changeData = (newData) => {
@@ -14,10 +16,12 @@ class Home extends Component {
 
     onFileChange = event => {
         this.setState({ onSelectedFile: event.target.files[0] });
+        this.setState({ image: loading });
     };
 
 
     onFileUpload = () => {
+        this.setState({ onData: " " })
         const formData = new FormData();
         formData.append(
             "file",
@@ -34,6 +38,7 @@ class Home extends Component {
             return response.text();
         }).then((data) => {
             this.setState({ onData: data })
+            this.setState({ image: pic })
         });
     };
 
@@ -46,7 +51,6 @@ class Home extends Component {
         return (
             <header id="home">
                 <ParticlesBg type="circle" bg={true} />
-
                 <div className="row banner">
                     <div className="banner-text">
                         <h1 className="responsive-headline">{name}</h1>
@@ -61,9 +65,9 @@ class Home extends Component {
                     </div>
 
                     {this.state.onData &&
-                        <div style={{ flexDirection: "row" }}>
+                        <div className="container">
                             <h3 style={{ color: "white" }}>{this.state.onData}</h3>
-                            <img src={pic} />;
+                            <img style={{ width: "30%" }} src={this.state.image} />
                         </div>}
 
                 </div>

@@ -256,6 +256,12 @@ ul#nav li.current a { color: #fe6928; }
 #resume .header-col { padding-top: 9px; }
 #resume .main-col { padding-right: 10%; }
 
+.container {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+ }
+
 .education, .work {
    margin-bottom: 48px;
    padding-bottom: 24px;
