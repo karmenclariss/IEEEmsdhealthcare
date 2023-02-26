@@ -129,11 +129,11 @@ def infographicCreation(summary):
     draw.text((text_box2[0], text_box2[1]), summary, font=text_font2, fill=(0, 0, 0))
 
     # Save the infographic as an image file
-    infographic.save("infographic.jpg")
+    infographic.save("./src/infographic.jpg")
 
     # Display the infographic
-    plt.imshow(infographic)
-    plt.show()
+    # plt.imshow(infographic)
+    # plt.show()
 
 # if __name__ == '__main__':
     

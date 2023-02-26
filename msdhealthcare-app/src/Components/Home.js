@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
-import { data } from "jquery";
+import pic from "../infographic.jpg";
 
 class Home extends Component {
     state = {
@@ -14,23 +14,6 @@ class Home extends Component {
 
     onFileChange = event => {
         this.setState({ onSelectedFile: event.target.files[0] });
-        // let selectedFile = event.target.files[0];
-        // const fileObj = ['application/pdf'];
-        // if (selectedFile) {
-        //     if (selectedFile && fileObj.includes(selectedFile.type)) {
-        //         this.setState({ onSelectedFile: selectedFile });
-        //         // console.log(selectedFile)
-        //         // let reader = new FileReader();
-        //         // reader.readAsDataURL(selectedFile);
-        //         // reader.onloadend = (e) => {
-        //         //     // setSelectPdfFile(e.target.result);
-        //         //     this.setState({ onSelectedFile: e.target.result });
-        //         // }
-        //     }
-        // }
-        // else {
-        //     alert('select pdf file');
-        // }
     };
 
 
@@ -44,7 +27,6 @@ class Home extends Component {
 
         // Request made to the backend api
         // Send formData object
-        // axios.post("http://localhost:5000/pdf", formData,{}).then(res => {console.log(res.data)});
         fetch("http://localhost:5000/pdf", {
             method: 'POST',
             body: formData,
@@ -77,7 +59,12 @@ class Home extends Component {
                             </button>
                         </ul>
                     </div>
-                    {this.state.onData && <h3 color="white">{this.state.onData}</h3>}
+
+                    {this.state.onData &&
+                        <div style={{ flexDirection: "row" }}>
+                            <h3 style={{ color: "white" }}>{this.state.onData}</h3>
+                            <img src={pic} />;
+                        </div>}
 
                 </div>
             </header>
